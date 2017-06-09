@@ -8,8 +8,8 @@ module.exports = (env) => {
 	const PROD = (env && env.production) || process.env.NODE_ENV == 'production'
 
 	const extractSass = new ExtractTextPlugin({
-			filename: 'styles.css',
-			disable: !PROD
+		filename: 'styles.css',
+		disable: !PROD
 	})
 
 	const PLUGINS = [
@@ -91,8 +91,11 @@ module.exports = (env) => {
 				test: /\.(css|scss)$/,
 				use: extractSass.extract({
 					use: ['css-loader', 'sass-loader'],
-					fallback: "style-loader"
+					fallback: 'style-loader'
 				})
+			}, {
+				test: /\.(eot|woff|woff2|png|jpg|gif|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				loader: 'url-loader?limit=8192&useRelativePath'
 			}]
 		},
 		plugins: webpackPlugins,
