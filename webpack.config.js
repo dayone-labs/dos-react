@@ -18,9 +18,6 @@ module.exports = (env) => {
 				return module.context && module.context.indexOf('node_modules') !== -1;
 			}
 		}),
-		new CopyWebpackPlugin([
-			{from: path.resolve(__dirname, 'src', 'index.html')}
-		])
 	]
 
 	if(PROD) {
@@ -52,6 +49,10 @@ module.exports = (env) => {
 				'NODE_ENV': JSON.stringify('production')
 			}
 		})
+		webpackPlugins.push(new CopyWebpackPlugin([
+			{from: path.resolve(__dirname, 'src', 'index.html')}
+		]))
+		webpackPlugins.push(new webpack.NoEmitOnErrorsPlugin())
 	}
 
 	return {
