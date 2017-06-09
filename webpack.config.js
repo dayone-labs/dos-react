@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 
 module.exports = (env) => {	
@@ -16,7 +17,10 @@ module.exports = (env) => {
 				// this assumes your vendor imports exist in the node_modules directory
 				return module.context && module.context.indexOf('node_modules') !== -1;
 			}
-		})
+		}),
+		new CopyWebpackPlugin([
+			{from: path.resolve(__dirname, 'src', 'index.html')}
+		])
 	]
 
 	if(PROD) {
