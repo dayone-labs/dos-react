@@ -1,11 +1,12 @@
 import 'babel-polyfill'
+import 'main.scss'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
 
 const Main = () => (
 	<div>
-		Hello from DayOne Stack
+		<h1>Hello from DayOne Stack</h1>
 	</div>
 )
 

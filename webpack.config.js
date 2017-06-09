@@ -1,12 +1,18 @@
 const webpack = require('webpack')
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = (env) => {	
 	const PROD = (env && env.production) || process.env.NODE_ENV == 'production'
 
-	const webpackPlugins = [
+	const extractSass = new ExtractTextPlugin({
+			filename: 'styles.css',
+			disable: !PROD
+	})
+
+	const PLUGINS = [
 		new webpack.ProvidePlugin({
 			'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
 		}),
@@ -18,10 +24,11 @@ module.exports = (env) => {
 				return module.context && module.context.indexOf('node_modules') !== -1;
 			}
 		}),
+		extractSass
 	]
 
-	if(PROD) {
-		webpackPlugins.push(new webpack.optimize.UglifyJsPlugin({
+	const PROD_PLUGINS = [
+		new webpack.optimize.UglifyJsPlugin({
 			mangle: true,
 			unused: true,
 			dead_code: true, // big one--strip code that will never execute
@@ -42,18 +49,20 @@ module.exports = (env) => {
 			output: {
 				comments: false,
 			},
-		}))
-		webpackPlugins.push(new webpack.optimize.AggressiveMergingPlugin()),
+		}),
+		new webpack.optimize.AggressiveMergingPlugin(),
 		new webpack.DefinePlugin({
 			'process.env': {
 				'NODE_ENV': JSON.stringify('production')
 			}
-		})
-		webpackPlugins.push(new CopyWebpackPlugin([
+		}),
+		new CopyWebpackPlugin([
 			{from: path.resolve(__dirname, 'src', 'index.html')}
-		]))
-		webpackPlugins.push(new webpack.NoEmitOnErrorsPlugin())
-	}
+		]),
+		new webpack.NoEmitOnErrorsPlugin(),
+	]
+
+	const webpackPlugins = PROD ? PLUGINS.concat(PROD_PLUGINS) : PLUGINS
 
 	return {
 		entry: {
@@ -79,9 +88,12 @@ module.exports = (env) => {
 				exclude: /\.test\.json$/,
 				loader: 'json-loader'
 			}, {
-				test: /\.css/,
-				use: [ 'style-loader', 'css-loader' ]
-			}, ]
+				test: /\.(css|scss)$/,
+				use: extractSass.extract({
+					use: ['css-loader', 'sass-loader'],
+					fallback: "style-loader"
+				})
+			}]
 		},
 		plugins: webpackPlugins,
 		devServer: {
