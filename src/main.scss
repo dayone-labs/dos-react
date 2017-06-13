@@ -1,7 +1,21 @@
+@import '~styles/spacing';
+
 $color-brand-dark: #2E3F54;
 $color-brand-light: #79D1B8;
 
 body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-width: 100vw;
+	min-height: 100vh;
+	font-family: sans-serif;
+	text-align: center;
 	color: $color-brand-light;
 	background-color: $color-brand-dark;
+}
+
+a {
+	color: $color-brand-light;
+	text-decoration: none;
 }

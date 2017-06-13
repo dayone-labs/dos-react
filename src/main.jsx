@@ -1,14 +1,20 @@
 import 'babel-polyfill'
+import 'normalize.css'
 import 'main.scss'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {
+	Route,
+	BrowserRouter as Router
+} from 'react-router-dom'
+
+import * as home from 'home'
 
 const Main = () => (
-	<div>
-		<img src={require('img/logo.png')}/>
-		<h1>Hello from DayOne Stack</h1>
-	</div>
+	<Router>
+		<Route exact path='/' component={home.component}/>
+	</Router>
 )
 
 ReactDOM.render(<Main />, document.getElementById('main'))

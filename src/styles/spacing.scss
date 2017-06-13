@@ -1,0 +1,30 @@
+// Margins and paddings
+$spacers: (
+	0: 0,
+	xs: 0.3em,
+	s: 0.6em,
+	m: 1em,
+	l: 1.4em,
+	xl: 2em,
+	xxl: 3em,
+	a: auto,
+) !default;
+
+@each $prop, $abbrev in (margin: m, padding: p) {
+	@each $size, $length in $spacers {
+
+		.#{$abbrev}-#{$size}  { #{$prop}:        $length; }
+		.#{$abbrev}-t-#{$size} { #{$prop}-top:    $length; }
+		.#{$abbrev}-r-#{$size} { #{$prop}-right:  $length; }
+		.#{$abbrev}-b-#{$size} { #{$prop}-bottom: $length; }
+		.#{$abbrev}-l-#{$size} { #{$prop}-left:   $length; }
+		.#{$abbrev}-x-#{$size} {
+			#{$prop}-right: $length;
+			#{$prop}-left:  $length;
+		}
+		.#{$abbrev}-y-#{$size} {
+			#{$prop}-top:    $length;
+			#{$prop}-bottom: $length;
+		}
+	}
+}

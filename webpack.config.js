@@ -95,7 +95,7 @@ module.exports = (env) => {
 				})
 			}, {
 				test: /\.(eot|woff|woff2|png|jpg|gif|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader: 'url-loader?limit=8192&useRelativePath'
+				loader: 'url-loader?limit=8192'
 			}]
 		},
 		plugins: webpackPlugins,
