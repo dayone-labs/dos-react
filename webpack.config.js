@@ -17,6 +17,7 @@ module.exports = (env) => {
 			'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
 		}),
 		new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.optimize.ModuleConcatenationPlugin(),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendor',
 			minChunks: function (module) {
@@ -73,7 +74,7 @@ module.exports = (env) => {
 		},
 		resolve: {
 			modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')],
-			extensions: ['.js', '.jsx', '.json'],
+			extensions: ['.js', '.jsx', '.json', '.messages'],
 		},
 		output: {
 			filename: '[name].js'
@@ -84,7 +85,7 @@ module.exports = (env) => {
 				loader: 'babel-loader',
 				exclude: [/node_modules/, /\.test\.js?$/],
 			}, {
-				test: /\.json$/,
+				test: /\.(json|messages)$/,
 				exclude: /\.test\.json$/,
 				loader: 'json-loader'
 			}, {

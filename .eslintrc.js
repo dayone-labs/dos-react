@@ -5,7 +5,7 @@ module.exports = {
         "es6": true
     },
     "extends": "eslint:recommended",
-    "installedESLint": true,
+    "parser": "babel-eslint",
     "parserOptions": {
         "sourceType": "module",
         "ecmaFeatures": {
@@ -33,9 +33,9 @@ module.exports = {
             "off",
             "never"
         ],
-		"no-console": "off",
-		"no-extra-boolean-cast": "off",
-		"react/jsx-uses-vars": "error",
-		"react/jsx-uses-react": "error"
+        "no-console": "warn",
+        "no-extra-boolean-cast": "off",
+        "react/jsx-uses-vars": "error",
+        "react/jsx-uses-react": "error"
     }
 };
