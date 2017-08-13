@@ -1,9 +1,7 @@
 # DOS React starter kit
 
 Welcome to [DayOne.pl](http://dayone.pl) React starter kit.
-The only purpose of this project is to get you up and running with React JS project as fast as possible with some sane defaults.
-
-This project is not a playground or training stuff. It's meant to stay with you also when your app goes into production.
+The purpose of this project is to get you up and running with React JS development as fast as possible but also to stay with you when you go to production.
 
 ## What's included
 
@@ -24,6 +22,14 @@ There's also a Lodash Babel plugin installed, so your bundle will only contain s
 ### [Redux](http://redux.js.org)
 **TODO**
 
+### Other
+* **[Scss](http://sass-lang.com)** for nice stylesheet
+* **[React-intl](https://github.com/yahoo/react-intl)** for localization
+* **[React router 4](https://reacttraining.com/react-router/web/guides/philosophy)** so you can keep nice URLs and make your app bookmarkable 
+* **[Classnames](https://github.com/JedWatson/classnames)** for declarative css class selection logic
+* **[Jest](https://facebook.github.io/jest/) and [Enzyme](http://airbnb.io/enzyme/)** for testing
+* **[Redux thunk](https://github.com/gaearon/redux-thunk) and [promise middleware](https://github.com/pburtchaell/redux-promise-middleware)** for backend calls
+* ** ...and some more, check [package.json] for details
 
 ## Getting Started
 
@@ -37,20 +43,22 @@ To start developing your React app you need to:
 
 ## Production build
 
-This starter kit is also configured to prepare a production build. It contains stuff like:
+This starter kit is also configured to prepare a production build:
 
 * Performance optimized output code
-* Uglification and minification
+* Uglification and minification enabled
 * `console.log` statements removal
 * `NODE_ENV=production`
 
 ### Running production build
 
+Run `npm run-script dist` and check `dist` folder for files.
 
 ## Authors
 
 Marek Piechut [@marekpiechut](http://twitter.com/@marekpiechut)
+Bartek Witczak [@bartekwitczak](http://twitter.com/@bartekwitczak)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+DOS starter kit is licensed under the MIT License so you can use it in free, opensource and commercial projects. Whichever you like. See [LICENSE.md] for details
