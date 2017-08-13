@@ -20,7 +20,7 @@ just `import {map} from 'lodash'` or `import {map} from 'lodash/fp'`, whichever 
 There's also a Lodash Babel plugin installed, so your bundle will only contain stuff that you really used (thanks to Webpack [tree shaking](https://webpack.js.org/guides/tree-shaking/))
 
 ### [Redux](http://redux.js.org)
-**TODO**
+We use redux to manage application state where component state is not enough. We have also configured [Chrome Redux dev tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) so you can see what's going on in your store while in development. Don't worry, we remove it in production build, so that performance is still nice.
 
 ### Other
 * **[Scss](http://sass-lang.com)** for nice stylesheet
@@ -62,3 +62,6 @@ Bartek Witczak [@bartekwitczak](http://twitter.com/@bartekwitczak)
 ## License
 
 DOS starter kit is licensed under the MIT License so you can use it in free, opensource and commercial projects. Whichever you like. See [LICENSE.md] for details
+
+## Known issues
+In dev mode you might notice an error about styles.css file missing. It's nothing to be worried about. In dev mode all stylesheets are inlined and no style.css file is generated. Only in production build we extract all styles to external file and that's when it will be used.
