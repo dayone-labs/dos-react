@@ -29,7 +29,7 @@ We use redux to manage application state where component state is not enough. We
 * **[Classnames](https://github.com/JedWatson/classnames)** for declarative css class selection logic
 * **[Jest](https://facebook.github.io/jest/) and [Enzyme](http://airbnb.io/enzyme/)** for testing
 * **[Redux thunk](https://github.com/gaearon/redux-thunk) and [promise middleware](https://github.com/pburtchaell/redux-promise-middleware)** for backend calls
-* ** ...and some more, check [package.json] for details
+* ...and some more, check [package.json] for details
 
 ## Getting Started
 
