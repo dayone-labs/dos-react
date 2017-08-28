@@ -3,6 +3,18 @@
 Welcome to [DayOne.pl](http://dayone.pl) React starter kit.
 The purpose of this project is to get you up and running with React JS development as fast as possible but also to stay with you when you go to production.
 
+## Getting Started
+
+To start developing your React app you need to:
+
+1. Install [Node JS](http://nodejs.org) (latest LTS version will be best)
+2. Clone this repo or download contents as ZIP
+3. Open terminal and navigate to project
+4. Run `npm install` to fetch all dependencies
+5. Run `npm start` to start development server
+6. Go to http://localhost:8080/webpack-dev-server/
+7. Edit some files (page will auto-reload after you change any source file)
+
 ## What's included
 
 ### [React JS](https://facebook.github.io/react/)
@@ -30,16 +42,6 @@ We use redux to manage application state where component state is not enough. We
 * **[Jest](https://facebook.github.io/jest/) and [Enzyme](http://airbnb.io/enzyme/)** for testing
 * **[Redux thunk](https://github.com/gaearon/redux-thunk) and [promise middleware](https://github.com/pburtchaell/redux-promise-middleware)** for backend calls
 * ...and some more, check [package.json] for details
-
-## Getting Started
-
-To start developing your React app you need to:
-
-1. Install [Node JS](http://nodejs.org) (latest LTS version will be best)
-2. Clone this repo or download contents as ZIP
-3. Open terminal and navigate to project
-4. Run `npm install` to fetch all dependencies
-5. Run `npm start` to start development server and edit some files
 
 ## Production build
 
