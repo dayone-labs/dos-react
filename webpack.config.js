@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 
 module.exports = (env) => {	
@@ -25,7 +25,7 @@ module.exports = (env) => {
 				return module.context && module.context.indexOf('node_modules') !== -1;
 			}
 		}),
-		extractSass
+		extractSass,
 	]
 
 	const PROD_PLUGINS = [
